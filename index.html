@@ -1,1 +1,182 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Tradition Fitness Poll</title><style>body{font-family:Inter,Arial,sans-serif;background:#101722;color:#f7f7f7;margin:0}.w{max-width:760px;margin:0 auto;padding:28px}img{max-width:240px;height:auto}.card{background:#1b2433;border:1px solid #2c3c56;padding:18px;border-radius:14px;margin:12px 0}label{display:block;margin:8px 0 6px;font-weight:600}input,select,textarea{width:100%;padding:10px;border-radius:10px;border:1px solid #3d5070;background:#0f1720;color:#fff}button{background:#c9a96e;color:#111;padding:12px 16px;border:0;border-radius:10px;font-weight:700;cursor:pointer}.small{font-size:12px;color:#9bb0c9}</style></head><body><div class="w"><img src="logo.png" alt="logo"/><h1>Tradition FL Fitness Poll</h1><p>Vote on the next wave of high-end fitness and wellness offerings.</p><form id="f"><div class="card"><label>1) Top goal right now?</label><select name="q1"><option>Fat loss</option><option>Strength</option><option>Mobility</option><option>Stress reduction</option></select><label>2) Preferred class length?</label><select name="q2"><option>30 min</option><option>45 min</option><option>60 min</option></select><label>3) Most wanted classes?</label><input name="q3" placeholder="HIIT, Yoga, Strength, Spin..."/><label>4) Personal training interest?</label><select name="q4"><option>Yes</option><option>No</option><option>Maybe</option></select><label>5) Small-group training interest?</label><select name="q5"><option>High</option><option>Medium</option><option>Low</option></select><label>6) Recovery services most valuable?</label><select name="q6"><option>Stretch & mobility</option><option>Sauna</option><option>Massage</option><option>All</option></select><label>7) Best days to attend?</label><input name="q7" placeholder="Mon/Tue/Weekend etc."/><label>8) Family-friendly events interest?</label><select name="q8"><option>Yes</option><option>No</option><option>Sometimes</option></select><label>9) Communication preference?</label><select name="q9"><option>Text</option><option>Email</option><option>WhatsApp</option><option>App</option></select><label>10) Anything else you'd like us to add?</label><textarea name="q10" rows="4"></textarea></div><button type="submit">Submit Poll</button><p class="small">Submission is captured for launch QA. Live integration can be plugged in once endpoint is confirmed.</p></form></div><script>document.getElementById('f').addEventListener('submit',e=>{e.preventDefault();alert('Thanks! Your response has been recorded.');});</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Tradition Fitness Poll</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #d8bc82;
+      --gold-strong: #e5c88e;
+      --glass: rgba(255,255,255,.05);
+      --glass-border: rgba(255,255,255,.18);
+      --ink: #ecf1f8;
+      --muted: #b7c3d6;
+    }
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: 'Inter', Arial, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      background:
+        radial-gradient(1200px 500px at 8% 0%, rgba(18,42,78,.55), transparent 70%),
+        radial-gradient(1000px 500px at 95% 95%, rgba(38,43,56,.45), transparent 70%),
+        linear-gradient(140deg, #081322 0%, #111f31 42%, #1d232f 100%);
+      background-size: 130% 130%;
+      animation: luxeShift 16s ease-in-out infinite;
+    }
+
+    @keyframes luxeShift {
+      0%,100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .hero {
+      position: relative;
+      min-height: 38vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 40px 20px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+      opacity: .40;
+      transform: scale(1.04);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(4,11,20,.32), rgba(4,11,20,.72));
+    }
+
+    .hero-inner { position: relative; z-index: 1; max-width: 920px; padding: 0 12px; }
+    .hero img { max-width: 210px; width: 45vw; height: auto; filter: drop-shadow(0 8px 26px rgba(0,0,0,.35)); }
+
+    h1 {
+      margin: 14px 0 8px;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3.1rem);
+      letter-spacing: .2px;
+    }
+    .sub { color: #d5dfed; margin: 0 auto; max-width: 700px; }
+
+    .w { max-width: 860px; margin: -56px auto 42px; padding: 0 20px; position: relative; z-index: 2; }
+
+    .card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: 0 24px 60px rgba(0,0,0,.35);
+    }
+
+    label { display:block; margin: 16px 0 7px; font-weight: 600; color: #f3f7fd; }
+
+    input,select,textarea {
+      width:100%;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(174,194,224,.3);
+      background: rgba(8,17,28,.68);
+      color:#fff;
+      font: inherit;
+      line-height: 1.55;
+      transition: border-color .25s ease, box-shadow .25s ease, background .25s ease;
+    }
+
+    input:focus,select:focus,textarea:focus {
+      outline: none;
+      border-color: rgba(216,188,130,.9);
+      box-shadow: 0 0 0 3px rgba(216,188,130,.2);
+      background: rgba(9,20,34,.82);
+    }
+
+    button {
+      margin-top: 20px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-strong));
+      color:#111;
+      padding: 13px 18px;
+      border:0;
+      border-radius:20px;
+      font-weight:700;
+      cursor:pointer;
+      font-family: 'Inter', sans-serif;
+      transition: transform .24s ease, box-shadow .24s ease, filter .24s ease;
+    }
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(216,188,130,.3);
+      filter: brightness(1.03);
+    }
+
+    .small { font-size: 13px; color: var(--muted); margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="hero-inner">
+      <img src="logo.png" alt="Tradition Fitness logo"/>
+      <h1>Tradition Luxury Fitness Poll</h1>
+      <p class="sub">Vote on premium classes, coaching experiences, and recovery options designed for a world-class wellness destination.</p>
+    </div>
+  </section>
+
+  <div class="w">
+    <form id="f" class="card">
+      <label>1) Top goal right now?</label>
+      <select name="q1"><option>Fat loss</option><option>Strength</option><option>Mobility</option><option>Stress reduction</option></select>
+
+      <label>2) Preferred class length?</label>
+      <select name="q2"><option>30 min</option><option>45 min</option><option>60 min</option></select>
+
+      <label>3) Most wanted classes?</label>
+      <input name="q3" placeholder="HIIT, Yoga, Strength, Spin..."/>
+
+      <label>4) Personal training interest?</label>
+      <select name="q4"><option>Yes</option><option>No</option><option>Maybe</option></select>
+
+      <label>5) Small-group training interest?</label>
+      <select name="q5"><option>High</option><option>Medium</option><option>Low</option></select>
+
+      <label>6) Recovery services most valuable?</label>
+      <select name="q6"><option>Stretch & mobility</option><option>Sauna</option><option>Massage</option><option>All</option></select>
+
+      <label>7) Best days to attend?</label>
+      <input name="q7" placeholder="Mon/Tue/Weekend etc."/>
+
+      <label>8) Family-friendly events interest?</label>
+      <select name="q8"><option>Yes</option><option>No</option><option>Sometimes</option></select>
+
+      <label>9) Communication preference?</label>
+      <select name="q9"><option>Text</option><option>Email</option><option>WhatsApp</option><option>App</option></select>
+
+      <label>10) Anything else you'd like us to add?</label>
+      <textarea name="q10" rows="4"></textarea>
+
+      <button type="submit">Submit Poll</button>
+      <p class="small">Submission is captured for launch QA. Live integration can be plugged in once endpoint is confirmed.</p>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('f').addEventListener('submit',e=>{e.preventDefault();alert('Thanks! Your response has been recorded.');});
+  </script>
+</body>
+</html>
