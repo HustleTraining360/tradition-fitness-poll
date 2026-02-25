@@ -888,9 +888,10 @@ function showScreen(id) {
 /* ===== ROUTING ===== */
 function handleRoute() {
   var hash = window.location.hash;
-  if (hash === '#analytics' || hash === '#/analytics') {
+  var path = window.location.pathname.toLowerCase();
+  if (hash === '#analytics' || hash === '#/analytics' || path === '/analytics') {
     showScreen('analytics');
-  } else if (hash === '#poll') {
+  } else if (hash === '#poll' || path === '/poll') {
     startPoll();
   } else {
     showScreen('landing');
