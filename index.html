@@ -1,182 +1,1152 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Tradition Fitness Poll</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --gold: #d8bc82;
-      --gold-strong: #e5c88e;
-      --glass: rgba(255,255,255,.05);
-      --glass-border: rgba(255,255,255,.18);
-      --ink: #ecf1f8;
-      --muted: #b7c3d6;
-    }
-    * { box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Tradition Community Fitness Poll | Harmony Lifestyle 360</title>
+<meta name="description" content="Help shape the future of fitness and wellness at Tradition. Share your preferences in this quick community poll.">
+<meta property="og:title" content="Tradition Community Fitness Poll">
+<meta property="og:description" content="Your voice matters. Help us design an extraordinary wellness experience for the Tradition community.">
+<meta property="og:image" content="https://files.manuscdn.com/user_upload_by_module/session_file/310419663030067302/nJAleXlFbPjouzrT.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
 
-    body {
-      margin: 0;
-      color: var(--ink);
-      font-family: 'Inter', Arial, sans-serif;
-      line-height: 1.6;
-      min-height: 100vh;
-      background:
-        radial-gradient(1200px 500px at 8% 0%, rgba(18,42,78,.55), transparent 70%),
-        radial-gradient(1000px 500px at 95% 95%, rgba(38,43,56,.45), transparent 70%),
-        linear-gradient(140deg, #081322 0%, #111f31 42%, #1d232f 100%);
-      background-size: 130% 130%;
-      animation: luxeShift 16s ease-in-out infinite;
-    }
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    @keyframes luxeShift {
-      0%,100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
+:root {
+  --cream: #FAF7F2;
+  --cream-dark: #F0EBE3;
+  --green-deep: #2C4A3E;
+  --green-medium: #3D6B5E;
+  --green-light: #5A8F7B;
+  --green-pale: #E8F0EC;
+  --gold: #C5A55A;
+  --gold-light: #D4BC7C;
+  --gold-dark: #A8893E;
+  --warm-gray: #6B6560;
+  --text-dark: #2D2926;
+  --text-medium: #5C5652;
+  --text-light: #8A8480;
+  --white: #FFFFFF;
+  --shadow-sm: 0 1px 3px rgba(44,74,62,0.08);
+  --shadow-md: 0 4px 12px rgba(44,74,62,0.1);
+  --shadow-lg: 0 8px 30px rgba(44,74,62,0.12);
+  --radius: 12px;
+  --radius-sm: 8px;
+}
 
-    .hero {
-      position: relative;
-      min-height: 38vh;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 40px 20px;
-      border-bottom: 1px solid rgba(255,255,255,.1);
-      overflow: hidden;
-    }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
-      opacity: .40;
-      transform: scale(1.04);
-    }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--cream);
+  color: var(--text-dark);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(4,11,20,.32), rgba(4,11,20,.72));
-    }
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  line-height: 1.2;
+}
 
-    .hero-inner { position: relative; z-index: 1; max-width: 920px; padding: 0 12px; }
-    .hero img { max-width: 210px; width: 45vw; height: auto; filter: drop-shadow(0 8px 26px rgba(0,0,0,.35)); }
+/* ===== SCREENS ===== */
+.screen { display: none; min-height: 100vh; min-height: 100dvh; }
+.screen.active { display: flex; flex-direction: column; }
 
-    h1 {
-      margin: 14px 0 8px;
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(2rem, 5vw, 3.1rem);
-      letter-spacing: .2px;
-    }
-    .sub { color: #d5dfed; margin: 0 auto; max-width: 700px; }
+/* ===== LANDING PAGE ===== */
+#landing {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
 
-    .w { max-width: 860px; margin: -56px auto 42px; padding: 0 20px; position: relative; z-index: 2; }
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('https://files.manuscdn.com/user_upload_by_module/session_file/310419663030067302/kqtYIJYvrLChBtFV.jpeg') center/cover no-repeat;
+  z-index: 0;
+}
 
-    .card {
-      background: var(--glass);
-      border: 1px solid var(--glass-border);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      border-radius: 24px;
-      padding: 26px;
-      box-shadow: 0 24px 60px rgba(0,0,0,.35);
-    }
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(44,74,62,0.80) 0%, rgba(44,74,62,0.86) 50%, rgba(44,74,62,0.92) 100%);
+  z-index: 1;
+}
 
-    label { display:block; margin: 16px 0 7px; font-weight: 600; color: #f3f7fd; }
+.hero-content {
+  position: relative; z-index: 2;
+  padding: 24px 20px;
+  max-width: 600px;
+}
 
-    input,select,textarea {
-      width:100%;
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(174,194,224,.3);
-      background: rgba(8,17,28,.68);
-      color:#fff;
-      font: inherit;
-      line-height: 1.55;
-      transition: border-color .25s ease, box-shadow .25s ease, background .25s ease;
-    }
+.hero-logo {
+  width: 160px;
+  height: auto;
+  margin-bottom: 20px;
+  filter: brightness(1.1);
+}
 
-    input:focus,select:focus,textarea:focus {
-      outline: none;
-      border-color: rgba(216,188,130,.9);
-      box-shadow: 0 0 0 3px rgba(216,188,130,.2);
-      background: rgba(9,20,34,.82);
-    }
+.hero-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(197,165,90,0.4);
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
 
-    button {
-      margin-top: 20px;
-      background: linear-gradient(135deg, var(--gold), var(--gold-strong));
-      color:#111;
-      padding: 13px 18px;
-      border:0;
-      border-radius:20px;
-      font-weight:700;
-      cursor:pointer;
-      font-family: 'Inter', sans-serif;
-      transition: transform .24s ease, box-shadow .24s ease, filter .24s ease;
-    }
-    button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(216,188,130,.3);
-      filter: brightness(1.03);
-    }
+.hero-title {
+  font-size: clamp(28px, 7vw, 48px);
+  color: var(--white);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
 
-    .small { font-size: 13px; color: var(--muted); margin-top: 12px; }
-  </style>
+.hero-title em {
+  color: var(--gold-light);
+  font-style: normal;
+}
+
+.hero-subtitle {
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 24px;
+  font-weight: 300;
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 36px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  min-height: 48px;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(197,165,90,0.4);
+}
+
+.btn-primary:active { transform: scale(0.98); }
+
+.hero-footer {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  z-index: 2;
+  text-align: center;
+  padding: 12px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+}
+
+.hero-footer a { color: var(--gold-light); text-decoration: none; }
+
+/* ===== POLL PAGE ===== */
+#poll { background: var(--cream); }
+
+.poll-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid rgba(44,74,62,0.06);
+  padding: 8px 16px;
+}
+
+.poll-header-inner {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.poll-header-logo {
+  height: 28px;
+  opacity: 0.8;
+}
+
+.poll-progress-info {
+  font-size: 12px;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.progress-bar-wrap {
+  height: 3px;
+  background: var(--cream-dark);
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--green-deep), var(--green-light));
+  transition: width 0.4s ease;
+  border-radius: 0 2px 2px 0;
+}
+
+.poll-body {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 12px 12px 20px;
+}
+
+.question-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  padding: 18px 16px;
+  width: 100%;
+  max-width: 560px;
+  animation: fadeUp 0.3s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.q-number {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 4px;
+}
+
+.q-title {
+  font-size: clamp(18px, 4.5vw, 24px);
+  color: var(--green-deep);
+  margin-bottom: 2px;
+  font-weight: 600;
+}
+
+.q-text {
+  font-size: 13px;
+  color: var(--text-medium);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.q-hint {
+  font-size: 11px;
+  color: var(--text-light);
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+/* Option styles */
+.options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.option-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  background: var(--white);
+  border: 1.5px solid var(--cream-dark);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: var(--text-dark);
+  min-height: 44px;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.option-btn:hover {
+  border-color: var(--green-light);
+  background: var(--green-pale);
+}
+
+.option-btn:active { transform: scale(0.99); }
+
+.option-btn.selected {
+  border-color: var(--green-deep);
+  background: var(--green-pale);
+  font-weight: 500;
+}
+
+.option-letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--cream-dark);
+  color: var(--text-medium);
+  font-size: 11px;
+  font-weight: 600;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.option-btn.selected .option-letter {
+  background: var(--green-deep);
+  color: var(--white);
+}
+
+.option-text { flex: 1; line-height: 1.3; }
+
+/* Two-column grid for shorter options */
+.options-grid.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.options-grid.two-col .option-btn {
+  padding: 9px 10px;
+  font-size: 12px;
+  gap: 8px;
+}
+
+.options-grid.two-col .option-letter {
+  width: 22px;
+  height: 22px;
+  font-size: 10px;
+}
+
+/* Three-column for Yes/Maybe/No */
+.options-grid.three-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 6px;
+}
+
+.options-grid.three-col .option-btn {
+  padding: 10px 8px;
+  font-size: 13px;
+  justify-content: center;
+  gap: 6px;
+}
+
+.options-grid.three-col .option-letter {
+  width: 22px;
+  height: 22px;
+  font-size: 10px;
+}
+
+/* Navigation */
+.q-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+  gap: 12px;
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: 1.5px solid var(--cream-dark);
+  color: var(--text-medium);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn-back:hover { border-color: var(--text-light); }
+
+.btn-next {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: linear-gradient(135deg, var(--green-deep), var(--green-medium));
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 44px;
+  margin-left: auto;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn-next:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(44,74,62,0.3);
+}
+
+.btn-next:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+}
+
+.btn-submit:hover:not(:disabled) {
+  box-shadow: 0 4px 12px rgba(197,165,90,0.4);
+}
+
+/* ===== THANK YOU PAGE ===== */
+#thankyou {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 24px;
+  background: var(--cream);
+}
+
+.thankyou-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  padding: 36px 24px;
+  max-width: 480px;
+  width: 100%;
+  animation: fadeUp 0.4s ease;
+}
+
+.thankyou-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.thankyou-title {
+  font-size: 30px;
+  color: var(--green-deep);
+  margin-bottom: 10px;
+}
+
+.thankyou-text {
+  font-size: 14px;
+  color: var(--text-medium);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.thankyou-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--cream-dark);
+}
+
+.thankyou-brand img { height: 24px; }
+.thankyou-brand span { font-size: 11px; color: var(--text-light); }
+
+/* ===== ANALYTICS PAGE ===== */
+#analytics { background: var(--cream); }
+
+.analytics-header {
+  background: linear-gradient(135deg, var(--green-deep), var(--green-medium));
+  padding: 20px 16px 16px;
+  text-align: center;
+}
+
+.analytics-header h1 {
+  color: var(--white);
+  font-size: 24px;
+  margin-bottom: 2px;
+}
+
+.analytics-header p {
+  color: rgba(255,255,255,0.65);
+  font-size: 12px;
+}
+
+.analytics-nav {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.analytics-nav button {
+  background: rgba(255,255,255,0.12);
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 7px 14px;
+  border-radius: 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-height: 34px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.analytics-nav button:hover { background: rgba(255,255,255,0.22); }
+
+.analytics-body {
+  flex: 1;
+  padding: 16px 12px;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.analytics-summary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.summary-card {
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  padding: 14px 10px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.summary-card .num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--green-deep);
+  line-height: 1.1;
+}
+
+.summary-card .label {
+  font-size: 11px;
+  color: var(--text-light);
+  margin-top: 2px;
+}
+
+.chart-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.chart-card h3 {
+  font-size: 15px;
+  color: var(--green-deep);
+  margin-bottom: 2px;
+}
+
+.chart-card .chart-subtitle {
+  font-size: 11px;
+  color: var(--text-light);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.bar-chart { display: flex; flex-direction: column; gap: 6px; }
+
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bar-label {
+  font-size: 11px;
+  color: var(--text-medium);
+  width: 110px;
+  flex-shrink: 0;
+  text-align: right;
+  line-height: 1.2;
+}
+
+.bar-track {
+  flex: 1;
+  height: 22px;
+  background: var(--cream);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.6s ease;
+  min-width: 2px;
+}
+
+.bar-fill.green { background: linear-gradient(90deg, var(--green-deep), var(--green-light)); }
+.bar-fill.gold { background: linear-gradient(90deg, var(--gold-dark), var(--gold)); }
+.bar-fill.teal { background: linear-gradient(90deg, #2A7B6F, #4DB8A4); }
+
+.bar-value {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-dark);
+  width: 36px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.no-data {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 380px) {
+  .hero-content { padding: 16px 14px; }
+  .hero-logo { width: 120px; margin-bottom: 14px; }
+  .hero-badge { font-size: 9px; padding: 5px 12px; margin-bottom: 10px; }
+  .hero-title { font-size: 26px; }
+  .hero-subtitle { font-size: 13px; margin-bottom: 18px; }
+  .question-card { padding: 14px 12px; }
+  .q-title { font-size: 17px; }
+  .option-btn { padding: 9px 10px; font-size: 12px; min-height: 40px; }
+  .options-grid { gap: 5px; }
+  .bar-label { width: 80px; font-size: 10px; }
+}
+
+@media (min-width: 768px) {
+  .hero-logo { width: 200px; }
+  .hero-badge { font-size: 12px; }
+  .question-card { padding: 28px; }
+  .poll-body { padding: 24px; }
+  .q-title { font-size: 24px; }
+  .option-btn { font-size: 14px; padding: 12px 14px; }
+  .analytics-summary { grid-template-columns: repeat(4, 1fr); }
+  .bar-label { width: 140px; font-size: 13px; }
+}
+
+/* Utility */
+.hidden { display: none !important; }
+</style>
 </head>
 <body>
-  <section class="hero">
-    <div class="hero-inner">
-      <img src="logo.png" alt="Tradition Fitness logo"/>
-      <h1>Tradition Luxury Fitness Poll</h1>
-      <p class="sub">Vote on premium classes, coaching experiences, and recovery options designed for a world-class wellness destination.</p>
-    </div>
-  </section>
 
-  <div class="w">
-    <form id="f" class="card">
-      <label>1) Top goal right now?</label>
-      <select name="q1"><option>Fat loss</option><option>Strength</option><option>Mobility</option><option>Stress reduction</option></select>
-
-      <label>2) Preferred class length?</label>
-      <select name="q2"><option>30 min</option><option>45 min</option><option>60 min</option></select>
-
-      <label>3) Most wanted classes?</label>
-      <input name="q3" placeholder="HIIT, Yoga, Strength, Spin..."/>
-
-      <label>4) Personal training interest?</label>
-      <select name="q4"><option>Yes</option><option>No</option><option>Maybe</option></select>
-
-      <label>5) Small-group training interest?</label>
-      <select name="q5"><option>High</option><option>Medium</option><option>Low</option></select>
-
-      <label>6) Recovery services most valuable?</label>
-      <select name="q6"><option>Stretch & mobility</option><option>Sauna</option><option>Massage</option><option>All</option></select>
-
-      <label>7) Best days to attend?</label>
-      <input name="q7" placeholder="Mon/Tue/Weekend etc."/>
-
-      <label>8) Family-friendly events interest?</label>
-      <select name="q8"><option>Yes</option><option>No</option><option>Sometimes</option></select>
-
-      <label>9) Communication preference?</label>
-      <select name="q9"><option>Text</option><option>Email</option><option>WhatsApp</option><option>App</option></select>
-
-      <label>10) Anything else you'd like us to add?</label>
-      <textarea name="q10" rows="4"></textarea>
-
-      <button type="submit">Submit Poll</button>
-      <p class="small">Submission is captured for launch QA. Live integration can be plugged in once endpoint is confirmed.</p>
-    </form>
+<!-- ===== LANDING SCREEN ===== -->
+<div id="landing" class="screen active">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663030067302/nJAleXlFbPjouzrT.png" alt="Harmony Lifestyle 360" class="hero-logo">
+    <div class="hero-badge">Community Wellness Poll — Now Open</div>
+    <h1 class="hero-title">Shape the Future of<br><em>Tradition Fitness</em></h1>
+    <p class="hero-subtitle">Your voice matters. Help us design wellness programs that reflect what our community values most. Takes about 3 minutes.</p>
+    <button class="btn-primary" onclick="startPoll()">Take the Poll <span>→</span></button>
   </div>
+  <div class="hero-footer">
+    &copy; 2026 Tradition Community &middot; Powered by <a href="#">Harmony Lifestyle 360</a>
+  </div>
+</div>
 
-  <script>
-    document.getElementById('f').addEventListener('submit',e=>{e.preventDefault();alert('Thanks! Your response has been recorded.');});
-  </script>
+<!-- ===== POLL SCREEN ===== -->
+<div id="poll" class="screen">
+  <div class="poll-header">
+    <div class="poll-header-inner">
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663030067302/nJAleXlFbPjouzrT.png" alt="HT360" class="poll-header-logo">
+      <span class="poll-progress-info" id="progressInfo">Question 1 of 10</span>
+    </div>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progressBar" style="width:10%"></div>
+    </div>
+  </div>
+  <div class="poll-body">
+    <div class="question-card" id="questionCard"></div>
+  </div>
+</div>
+
+<!-- ===== THANK YOU SCREEN ===== -->
+<div id="thankyou" class="screen">
+  <div class="thankyou-card">
+    <div class="thankyou-icon">🌿</div>
+    <h2 class="thankyou-title">Thank You!</h2>
+    <p class="thankyou-text">Your feedback is invaluable. We're using your input to shape the future of fitness and wellness programs at Tradition. Stay tuned for exciting updates!</p>
+    <button class="btn-primary" onclick="showScreen('landing')">Back to Home</button>
+    <div class="thankyou-brand">
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663030067302/nJAleXlFbPjouzrT.png" alt="HT360">
+      <span>Harmony Lifestyle 360</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ANALYTICS SCREEN ===== -->
+<div id="analytics" class="screen">
+  <div class="analytics-header">
+    <h1>Poll Analytics</h1>
+    <p>Tradition Community Fitness Poll Results</p>
+    <div class="analytics-nav">
+      <button onclick="showScreen('landing')">← Back to Poll</button>
+      <button onclick="downloadCSV()">⬇ Download CSV</button>
+      <button onclick="clearAllData()">Clear Data</button>
+    </div>
+  </div>
+  <div class="analytics-body" id="analyticsBody"></div>
+</div>
+
+<script>
+/* ===== POLL DATA ===== */
+const questions = [
+  {
+    id: 'interest',
+    category: 'Interest',
+    icon: '💪',
+    question: 'Interested in coached fitness classes at the clubhouse?',
+    type: 'single',
+    layout: 'single',
+    options: [
+      'Yes, definitely',
+      'Maybe, I\'d like details',
+      'Not at this time'
+    ]
+  },
+  {
+    id: 'class_types',
+    category: 'Class Preferences',
+    icon: '🧘',
+    question: 'Which class types interest you most?',
+    type: 'multi',
+    layout: 'two-col',
+    hint: 'Select all that apply',
+    options: [
+      'Strength Training',
+      'Low-Impact / Joint-Friendly',
+      'Yoga / Mobility',
+      'Balance & Stability',
+      'Cardio Conditioning',
+      'Beginner-Friendly',
+      'Small Group Training'
+    ]
+  },
+  {
+    id: 'schedule',
+    category: 'Scheduling',
+    icon: '🕐',
+    question: 'What days/times work best?',
+    type: 'multi',
+    layout: 'two-col',
+    hint: 'Select all that apply',
+    options: [
+      'Early AM (6–8)',
+      'Mid-Morning (8–11)',
+      'Afternoon',
+      'Evening',
+      'Weekends'
+    ]
+  },
+  {
+    id: 'activity_level',
+    category: 'Activity Level',
+    icon: '📊',
+    question: 'Your current activity level?',
+    type: 'single',
+    layout: 'single',
+    options: [
+      'I exercise regularly',
+      'I exercise occasionally',
+      'Want to start, haven\'t yet',
+      'Need guidance & accountability'
+    ]
+  },
+  {
+    id: 'assessment',
+    category: 'Assessment',
+    icon: '✅',
+    question: 'Interested in a free fitness assessment?',
+    type: 'single',
+    layout: 'three-col',
+    options: ['Yes', 'Maybe', 'No']
+  },
+  {
+    id: 'goal',
+    category: 'Fitness Goals',
+    icon: '🎯',
+    question: 'Your primary fitness goal right now?',
+    type: 'single',
+    layout: 'single',
+    options: [
+      'Lose weight / body fat',
+      'Build strength',
+      'Improve balance & prevent falls',
+      'Increase mobility / flexibility',
+      'Improve overall health & energy'
+    ]
+  },
+  {
+    id: 'group_training',
+    category: 'Group Training',
+    icon: '👥',
+    question: 'Would you consider structured small group training?',
+    type: 'single',
+    layout: 'three-col',
+    options: [
+      'Yes',
+      'Maybe',
+      'No'
+    ]
+  },
+  {
+    id: 'barriers',
+    category: 'Barriers',
+    icon: '🚧',
+    question: 'What prevents you from participating more?',
+    type: 'single',
+    layout: 'single',
+    options: [
+      'Schedule conflicts',
+      'Health or injury concerns',
+      'Not sure where to start',
+      'Motivation / accountability',
+      'Prefer working out alone'
+    ]
+  },
+  {
+    id: 'events',
+    category: 'Events',
+    icon: '🎉',
+    question: 'Interested in fitness events & workshops?',
+    type: 'single',
+    layout: 'three-col',
+    hint: 'e.g., balance clinic, weight loss challenge, mobility workshop',
+    options: ['Yes', 'Maybe', 'No']
+  },
+  {
+    id: 'trainer',
+    category: 'Current Training',
+    icon: '🏋️',
+    question: 'Are you currently working with a personal trainer?',
+    type: 'single',
+    layout: 'single',
+    options: [
+      'Yes, through HT360',
+      'Yes, independently',
+      'No'
+    ]
+  }
+];
+
+/* ===== STATE ===== */
+let currentQ = 0;
+let answers = {};
+
+/* ===== SCREEN MANAGEMENT ===== */
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(function(s) { s.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+  if (id === 'analytics') renderAnalytics();
+  window.scrollTo(0, 0);
+}
+
+/* ===== ROUTING ===== */
+function handleRoute() {
+  var hash = window.location.hash;
+  if (hash === '#analytics' || hash === '#/analytics') {
+    showScreen('analytics');
+  } else if (hash === '#poll') {
+    startPoll();
+  } else {
+    showScreen('landing');
+  }
+}
+
+window.addEventListener('hashchange', handleRoute);
+window.addEventListener('load', handleRoute);
+
+/* ===== POLL LOGIC ===== */
+function startPoll() {
+  currentQ = 0;
+  answers = {};
+  showScreen('poll');
+  renderQuestion();
+}
+
+function renderQuestion() {
+  var q = questions[currentQ];
+  var total = questions.length;
+  var pct = Math.round(((currentQ + 1) / total) * 100);
+
+  document.getElementById('progressInfo').textContent = 'Question ' + (currentQ + 1) + ' of ' + total;
+  document.getElementById('progressBar').style.width = pct + '%';
+
+  var selected = answers[q.id] || (q.type === 'multi' ? [] : null);
+  var letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+  var gridClass = 'options-grid';
+  if (q.layout === 'two-col') gridClass = 'options-grid two-col';
+  else if (q.layout === 'three-col') gridClass = 'options-grid three-col';
+
+  var optionsHTML = '';
+  for (var i = 0; i < q.options.length; i++) {
+    var opt = q.options[i];
+    var isSelected = false;
+    if (q.type === 'multi') {
+      isSelected = selected && selected.indexOf(opt) > -1;
+    } else {
+      isSelected = selected === opt;
+    }
+    optionsHTML += '<button class="option-btn' + (isSelected ? ' selected' : '') + '" ' +
+      'onclick="selectOption(\'' + q.id + '\', this.dataset.val, \'' + q.type + '\')" ' +
+      'data-val="' + opt.replace(/"/g, '&quot;') + '" type="button">' +
+      '<span class="option-letter">' + letters[i] + '</span>' +
+      '<span class="option-text">' + opt + '</span></button>';
+  }
+
+  var canGoBack = currentQ > 0;
+  var isLast = currentQ === total - 1;
+  var hasSelection = q.type === 'multi' ? (selected && selected.length > 0) : selected !== null;
+
+  var card = document.getElementById('questionCard');
+  card.innerHTML =
+    '<div class="q-number">' + q.icon + ' ' + q.category + '</div>' +
+    '<h2 class="q-title">' + q.question + '</h2>' +
+    (q.hint ? '<p class="q-hint">' + q.hint + '</p>' : '<div style="height:6px"></div>') +
+    '<div class="' + gridClass + '">' + optionsHTML + '</div>' +
+    '<div class="q-nav">' +
+      (canGoBack ? '<button class="btn-back" onclick="prevQuestion()">← Back</button>' : '<div></div>') +
+      '<button class="btn-next' + (isLast ? ' btn-submit' : '') + '" onclick="' + (isLast ? 'submitPoll()' : 'nextQuestion()') + '"' + (!hasSelection ? ' disabled' : '') + '>' +
+        (isLast ? 'Submit →' : 'Continue →') +
+      '</button>' +
+    '</div>';
+
+  // Scroll to top of poll body
+  window.scrollTo(0, 0);
+}
+
+function selectOption(qId, value, type) {
+  if (type === 'multi') {
+    if (!answers[qId]) answers[qId] = [];
+    var idx = answers[qId].indexOf(value);
+    if (idx > -1) {
+      answers[qId].splice(idx, 1);
+    } else {
+      answers[qId].push(value);
+    }
+  } else {
+    answers[qId] = value;
+  }
+  renderQuestion();
+}
+
+function nextQuestion() {
+  if (currentQ < questions.length - 1) {
+    currentQ++;
+    renderQuestion();
+  }
+}
+
+function prevQuestion() {
+  if (currentQ > 0) {
+    currentQ--;
+    renderQuestion();
+  }
+}
+
+function submitPoll() {
+  var existing = JSON.parse(localStorage.getItem('tradition_poll_responses') || '[]');
+  var response = {
+    id: Date.now(),
+    timestamp: new Date().toISOString(),
+    answers: {}
+  };
+  // Deep copy answers
+  for (var key in answers) {
+    if (answers.hasOwnProperty(key)) {
+      response.answers[key] = Array.isArray(answers[key]) ? answers[key].slice() : answers[key];
+    }
+  }
+  existing.push(response);
+  localStorage.setItem('tradition_poll_responses', JSON.stringify(existing));
+  showScreen('thankyou');
+}
+
+/* ===== ANALYTICS ===== */
+function getResponses() {
+  return JSON.parse(localStorage.getItem('tradition_poll_responses') || '[]');
+}
+
+function renderAnalytics() {
+  var responses = getResponses();
+  var body = document.getElementById('analyticsBody');
+
+  if (responses.length === 0) {
+    body.innerHTML =
+      '<div class="analytics-summary">' +
+        '<div class="summary-card"><div class="num">0</div><div class="label">Total Responses</div></div>' +
+        '<div class="summary-card"><div class="num">—</div><div class="label">Awaiting Data</div></div>' +
+      '</div>' +
+      '<div class="no-data">' +
+        '<p style="font-size:32px;margin-bottom:12px">📊</p>' +
+        '<p>No responses yet. Share the poll to start collecting data!</p>' +
+      '</div>';
+    return;
+  }
+
+  var totalR = responses.length;
+  var firstDate = new Date(responses[0].timestamp).toLocaleDateString();
+  var lastDate = new Date(responses[responses.length - 1].timestamp).toLocaleDateString();
+
+  var yesCount = 0;
+  for (var r = 0; r < responses.length; r++) {
+    if (responses[r].answers.interest === 'Yes, definitely') yesCount++;
+  }
+  var yesPct = Math.round((yesCount / totalR) * 100);
+
+  var html =
+    '<div class="analytics-summary">' +
+      '<div class="summary-card"><div class="num">' + totalR + '</div><div class="label">Total Responses</div></div>' +
+      '<div class="summary-card"><div class="num">' + yesPct + '%</div><div class="label">Interested in Classes</div></div>' +
+      '<div class="summary-card"><div class="num">' + firstDate + '</div><div class="label">First Response</div></div>' +
+      '<div class="summary-card"><div class="num">' + lastDate + '</div><div class="label">Latest Response</div></div>' +
+    '</div>';
+
+  var colorClasses = ['green', 'gold', 'teal'];
+
+  for (var qi = 0; qi < questions.length; qi++) {
+    var q = questions[qi];
+    var counts = {};
+    for (var oi = 0; oi < q.options.length; oi++) {
+      counts[q.options[oi]] = 0;
+    }
+
+    for (var ri = 0; ri < responses.length; ri++) {
+      var ans = responses[ri].answers[q.id];
+      if (!ans) continue;
+      if (Array.isArray(ans)) {
+        for (var ai = 0; ai < ans.length; ai++) {
+          if (counts[ans[ai]] !== undefined) counts[ans[ai]]++;
+        }
+      } else {
+        if (counts[ans] !== undefined) counts[ans]++;
+      }
+    }
+
+    var maxCount = 1;
+    for (var k in counts) {
+      if (counts[k] > maxCount) maxCount = counts[k];
+    }
+
+    var colorClass = colorClasses[qi % 3];
+    var barsHTML = '';
+
+    for (var bi = 0; bi < q.options.length; bi++) {
+      var opt = q.options[bi];
+      var count = counts[opt];
+      var pctVal = Math.round((count / totalR) * 100);
+      var barW = Math.max((count / maxCount) * 100, 2);
+      barsHTML +=
+        '<div class="bar-row">' +
+          '<span class="bar-label">' + opt + '</span>' +
+          '<div class="bar-track"><div class="bar-fill ' + colorClass + '" style="width:' + barW + '%"></div></div>' +
+          '<span class="bar-value">' + pctVal + '%</span>' +
+        '</div>';
+    }
+
+    html +=
+      '<div class="chart-card">' +
+        '<h3>' + q.icon + ' Q' + (qi + 1) + ': ' + q.category + '</h3>' +
+        '<div class="chart-subtitle">' + q.question + '</div>' +
+        '<div class="bar-chart">' + barsHTML + '</div>' +
+      '</div>';
+  }
+
+  body.innerHTML = html;
+}
+
+/* ===== CSV EXPORT ===== */
+function downloadCSV() {
+  var responses = getResponses();
+  if (responses.length === 0) {
+    alert('No responses to export.');
+    return;
+  }
+
+  var headers = ['Response ID', 'Timestamp'];
+  for (var hi = 0; hi < questions.length; hi++) {
+    headers.push('Q' + (hi + 1) + ': ' + questions[hi].category);
+  }
+
+  var rows = [];
+  for (var ri = 0; ri < responses.length; ri++) {
+    var r = responses[ri];
+    var row = [r.id, r.timestamp];
+    for (var qi = 0; qi < questions.length; qi++) {
+      var ans = r.answers[questions[qi].id];
+      if (Array.isArray(ans)) {
+        row.push('"' + ans.join('; ') + '"');
+      } else {
+        row.push('"' + (ans || '') + '"');
+      }
+    }
+    rows.push(row.join(','));
+  }
+
+  var csv = headers.join(',') + '\n' + rows.join('\n');
+  var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = 'tradition_poll_results_' + new Date().toISOString().slice(0, 10) + '.csv';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+/* ===== CLEAR DATA ===== */
+function clearAllData() {
+  if (confirm('Are you sure you want to clear all poll responses? This cannot be undone.')) {
+    localStorage.removeItem('tradition_poll_responses');
+    renderAnalytics();
+  }
+}
+</script>
 </body>
 </html>
